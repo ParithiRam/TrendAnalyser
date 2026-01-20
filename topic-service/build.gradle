@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'com.antigravity'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.apache.kafka:kafka-clients:3.4.0'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.14.2'
+    implementation 'org.mongodb:mongodb-driver-sync:4.9.0'
+    implementation 'org.slf4j:slf4j-simple:2.0.7'
+    // Using a simple stop-word list and frequency counter for "trending" in this demo
+    // Real LDA would require Mallet or similar, but for a "trending topic" demo, 
+    // frequency analysis on a window is often more robust for real-time than online LDA.
+    // However, the prompt asked for LDA. I will add Mallet.
+    implementation 'cc.mallet:mallet:2.0.8' 
+}
+
+application {
+    mainClass = 'com.antigravity.topic.TopicExtractor'
+}
